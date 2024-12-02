@@ -1,6 +1,8 @@
-# QUIZ
+# Monitoring and troubleshooting
 
-## Which interface JDK tools use to connect to JVM locally?
+## QUIZ
+
+### Which interface JDK tools use to connect to JVM locally?
 JMX (Java Management Extensions) API - it is a technology that provides tools for managing and monitoring applications, system objects, devices, and service-oriented networks. Those resources are represented by objects called MBeans (Managed Beans).
 
 JMX is designed to provide a simple and standardized way to manage resources at runtime in a Java environment. This API is widely used in enterprise systems for managing and monitoring application configurations and performance.
@@ -20,9 +22,9 @@ Key components of the JMX API include:
 The JMX API is flexible and can be used in literally any environment or application running on the Java platform. It provides the tools you need to build your own management and monitoring system, or to integrate with existing management solutions.
 
 
-## What is difference between profiling and traceability?
+### What is difference between profiling and traceability?
 
-### Profiling
+#### Profiling
 Profiling refers to a form of performance analysis that involves collecting data about a program’s memory use, CPU time, and other resource utilizations during its execution. The primary goal of profiling is to identify performance bottlenecks and areas for optimization within the application’s code. Profilers provide detailed statistics and metrics on various aspects such as execution time of methods, frequency of method calls, and memory allocation, which help developers optimize the application effectively.
 
 Example tools:
@@ -31,7 +33,7 @@ Example tools:
 3. **JProfiler:** Another commercial profiler that offers a wide range of profiling features including memory usage, CPU profiling, and thread profiling.
 4. **Java Mission Control (JMC)** and **Java Flight Recorder (JFR):** Java Mission Control is a set of tools for managing, monitoring, profiling, and troubleshooting Java applications. Java Flight Recorder collects detailed runtime information so that it can be analyzed by JMC.
 
-### Traceability
+#### Traceability
 Traceability, refers to the ability to trace the execution path of an application at runtime. This often involves generating logs, execution traces, or detailed reports of the steps the application goes through, including function calls, state changes, and interactions with external systems. Traceability is crucial for debugging, understanding application behavior, auditing purposes, and ensuring that the application adheres to expected flow and logic.
 
 Example tools:
@@ -47,7 +49,7 @@ Some tools provide both profiling and tracing capabilities:
 2. **Dynatrace:** Provides extensive application performance monitoring features that cover profiling and deep dive diagnostics across application traces.
 3. **Datadog:** Though primarily a monitoring service, it also offers profiling and APM capabilities with tracing and log management features.
 
-### Key Differences
+#### Key Differences
 1. **Purpose:** Profiling is used primarily for performance optimization and is focused on metrics related to how the software uses system resources. Traceability, on the other hand, is about providing visibility into the execution path and behavior of the application, helping developers and system administrators understand how the application processes data and handles operations.
 
 2. **Data Collected:** Profiling gathers data related to resource consumption, such as CPU cycles, memory usage, and execution time. Traceability collects data related to the sequence of operations executed, such as function calls, parameter values, and the sequence of executed code blocks.
@@ -58,7 +60,7 @@ Some tools provide both profiling and tracing capabilities:
 
 Understanding both profiling and traceability and how they complement each other allows teams to both optimize performance and maintain visibility into application behavior, which is essential for maintaining robust, efficient, and trustworthy systems.
 
-## Links
+### Links
 1. Oracle - Java Monitoring and Management: https://docs.oracle.com/en/java/javase/21/management/overview-java-se-monitoring-and-management.html#GUID-EA3CFF69-F0D3-47AB-9AED-EF1CBF7F2B24
 2. Oracle - General Java Troubleshooting: https://docs.oracle.com/en/java/javase/21/troubleshoot/general-java-troubleshooting.html
 3. Baeldung - Understanding Memory Leaks: https://www.baeldung.com/java-memory-leaks
