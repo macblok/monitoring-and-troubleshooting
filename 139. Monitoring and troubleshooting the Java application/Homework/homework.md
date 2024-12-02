@@ -58,3 +58,9 @@ Some tools provide both profiling and tracing capabilities:
 4. **Use Case:** Profiling is often done during the testing phase to optimize the code before production or when performance issues arise in production. Traceability is used throughout the development lifecycle for debugging during development, and can also be important in production for monitoring and diagnosing runtime issues.
 
 Understanding both profiling and traceability and how they complement each other allows teams to both optimize performance and maintain visibility into application behavior, which is essential for maintaining robust, efficient, and trustworthy systems.
+
+## Links
+1. Oracle - Java Monitoring and Management: https://docs.oracle.com/en/java/javase/21/management/overview-java-se-monitoring-and-management.html#GUID-EA3CFF69-F0D3-47AB-9AED-EF1CBF7F2B24
+2. Oracle - General Java Troubleshooting: https://docs.oracle.com/en/java/javase/21/troubleshoot/general-java-troubleshooting.html
+3. Baeldung - Understanding Memory Leaks: https://www.baeldung.com/java-memory-leaks
+4. Reflectoring - Creating and Analyzing Java Heap Dumps: https://reflectoring.io/create-analyze-heapdump/
