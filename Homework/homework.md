@@ -100,5 +100,18 @@ jmap -dump:format=b,file=snapshot.hprof <pid>
 ```
 ![Get heap dump with jmap](screenshots/get_head_dump_with_jmap.png "Get heap dump with jmap")
 
+### Get heap histogram
+
+#### Using jcmd
+```
+jcmd <pid> GC.class_histogram
+```
+![Get heap histogram with jcmd](screenshots/get_head_histogram_with_jcmd.png "Get heap histogram with jcmd")
+
+#### Using jmap
+```
+jmap -histo <pid> 
+```
+![Get heap histogram with jmap](screenshots/get_head_histogram_with_jmap.png "Get heap histogram with jmap")
 
 
