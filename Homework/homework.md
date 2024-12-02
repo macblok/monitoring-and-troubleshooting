@@ -1,8 +1,7 @@
 # QUIZ
 
 ## Which interface JDK tools use to connect to JVM locally?
-JMX (Java Management Extensions) API
-JMX (Java Management Extensions) API is a technology that provides tools for managing and monitoring applications, system objects, devices, and service-oriented networks. Those resources are represented by objects called MBeans (Managed Beans).
+JMX (Java Management Extensions) API - it is a technology that provides tools for managing and monitoring applications, system objects, devices, and service-oriented networks. Those resources are represented by objects called MBeans (Managed Beans).
 
 JMX is designed to provide a simple and standardized way to manage resources at runtime in a Java environment. This API is widely used in enterprise systems for managing and monitoring application configurations and performance.
 
@@ -12,7 +11,7 @@ Key components of the JMX API include:
 
 2. **MBean Server**: This is a container for MBeans. It acts as a registry for all MBeans in the system and provides management and monitoring capabilities through those MBeans.
 
-3. **JMX Agent**: Comprising of the MBean server and a set of services for handling MBeans, this agent can communicate with remote management applications.
+3. **JMX Agent**: Consisting of the MBean server and a set of services for handling MBeans, this agent can communicate with remote management applications.
 
 4. **Notifications**: This feature allows MBeans to notify listeners of specific events (like state changes or specific conditions being met). For example, an MBean can notify other components if an error occurs or a threshold is surpassed.
 
@@ -66,23 +65,40 @@ Understanding both profiling and traceability and how they complement each other
 4. Reflectoring - Creating and Analyzing Java Heap Dumps: https://reflectoring.io/create-analyze-heapdump/
 
 ## Environment specification
-![Environment specification](screenshots/Environment_specification.png "Environment specification")
+![Environment specification](screenshots/environment_specification.png "Environment specification")
 
 ## OutOfMemory (OOM) error troubleshooting
 
 ### Get OOM error
 ```
-    java -jar -Xmx100m heap-1.0.0-SNAPSHOT.jar
+java -jar -Xmx100m heap-1.0.0-SNAPSHOT.jar
 ```
 ![Get OOM error](screenshots/OOM_0.png "Get OOM error console")
 
 ### Use jvisualvm to observe OOM
 ![VisualVM heap observation](screenshots/OOM_1.png "VisualVM heap observation")
 
+### Get heap dump
 
+#### Using -XX:+HeapDumpOnOutOfMemoryError option
+```
+java -jar -Xmx100m -XX:+HeapDumpOnOutOfMemoryError heap-1.0.0-SNAPSHOT.jar
+```
+![Heap dump on OOM error](screenshots/heap_dump_on_OOM_error.png "Heap dump on OOM error")
 
-
-
+#### [Optional] Using jcmd
+```
+jps -lvm
+```
+![Get PID with jps](screenshots/get_PID_with_jps.png "Get PID with jps")
+```
+jcmd <pid> GC.heap_dump <filename>
+```
+![Get heap dump with jcmd](screenshots/get_head_dump_with_jcmd.png "Get heap dump with jcmd")
+```
+jmap -dump:format=b,file=snapshot.hprof <pid>
+```
+![Get heap dump with jmap](screenshots/get_head_dump_with_jmap.png "Get heap dump with jmap")
 
 
 
