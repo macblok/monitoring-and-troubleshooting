@@ -64,3 +64,25 @@ Understanding both profiling and traceability and how they complement each other
 2. Oracle - General Java Troubleshooting: https://docs.oracle.com/en/java/javase/21/troubleshoot/general-java-troubleshooting.html
 3. Baeldung - Understanding Memory Leaks: https://www.baeldung.com/java-memory-leaks
 4. Reflectoring - Creating and Analyzing Java Heap Dumps: https://reflectoring.io/create-analyze-heapdump/
+
+## Environment specification
+![Environment specification](screenshots/Environment_specification.png "Environment specification")
+
+## OutOfMemory (OOM) error troubleshooting
+
+### Get OOM error
+```
+    java -jar -Xmx100m heap-1.0.0-SNAPSHOT.jar
+```
+![Get OOM error](screenshots/OOM_0.png "Get OOM error console")
+
+### Use jvisualvm to observe OOM
+![VisualVM heap observation](screenshots/OOM_1.png "VisualVM heap observation")
+
+
+
+
+
+
+
+
