@@ -114,4 +114,58 @@ jmap -histo <pid>
 ```
 ![Get heap histogram with jmap](screenshots/get_head_histogram_with_jmap.png "Get heap histogram with jmap")
 
+### Analyze heap dump
+
+#### Using Java Visual VM
+![analyze_heap_dump_with_visual_vm_0.png](screenshots/analyze_heap_dump_with_visual_vm_0.png "analyze_heap_dump_with_visual_vm_0")
+![analyze_heap_dump_with_visual_vm_1.png](screenshots/analyze_heap_dump_with_visual_vm_1.png "analyze_heap_dump_with_visual_vm_1")
+![analyze_heap_dump_with_visual_vm_2.png](screenshots/analyze_heap_dump_with_visual_vm_2.png "analyze_heap_dump_with_visual_vm_2")
+![analyze_heap_dump_with_visual_vm_3.png](screenshots/analyze_heap_dump_with_visual_vm_3.png "analyze_heap_dump_with_visual_vm_3")
+
+#### OQL
+
+Execute OQL in jvisualvm:
+```
+select objs from java.lang.Object[] objs where objs.length > 100
+```
+![analyze_heap_dump_with_visual_vm_OQL_0.png](screenshots/analyze_heap_dump_with_visual_vm_OQL_0.png "analyze_heap_dump_with_visual_vm_OQL_0")
+```
+select referrers(objs) from java.lang.Object[] objs where objs.length > 100
+```
+![analyze_heap_dump_with_visual_vm_OQL_1.png](screenshots/analyze_heap_dump_with_visual_vm_OQL_1.png "analyze_heap_dump_with_visual_vm_OQL_1")
+```
+select referrers(arr) from java.util.ArrayList arr where arr.size > 100
+```
+![analyze_heap_dump_with_visual_vm_OQL_2.png](screenshots/analyze_heap_dump_with_visual_vm_OQL_2.png "analyze_heap_dump_with_visual_vm_OQL_2")
+
+Startup jhat (note: jhat was decommissioned in JDK 9)
+```
+jhat <head_dump.hprof>
+```
+![Startup jhat](screenshots/startup_jhat.png "Startup jhat")
+
+Execute:
+```
+select [objs, objs.length] from [Ljava.lang.Object; objs where objs.length > 100
+```
+![analyze_heap_dump_with_jhat_0](screenshots/analyze_heap_dump_with_jhat_0.png "analyze_heap_dump_with_jhat_0")
+
+Execute:
+```
+select referrers(objs) from [Ljava.lang.Object; objs where objs.length > 100
+```
+![analyze_heap_dump_with_jhat_1](screenshots/analyze_heap_dump_with_jhat_1.png "analyze_heap_dump_with_jhat_1")
+
+Execute:
+```
+select referrers(arr) from java.util.ArrayList arr where arr.size > 100
+```
+![analyze_heap_dump_with_jhat_2](screenshots/analyze_heap_dump_with_jhat_2.png "analyze_heap_dump_with_jhat_2")
+
+
+
+
+
+
+
 
