@@ -164,6 +164,46 @@ select referrers(arr) from java.util.ArrayList arr where arr.size > 100
 ```
 ![analyze_heap_dump_with_jhat_2](screenshots/analyze_heap_dump_with_jhat_2.png "analyze_heap_dump_with_jhat_2")
 
+## Deadlock troubleshooting
+
+### Get deadlock
+```
+java -jar deadlock-1.0.0-SNAPSHOT.jar
+```
+![Get deadlock](screenshots/get_deadlock.png "Get deadlock")
+
+### Get thread dump
+
+#### jstack
+```
+jstack -l <pid>
+```
+![Get thread dump with jstack](screenshots/deadlock_jstack_0.png "Get thread dump with jstack")
+![Get thread dump with jstack](screenshots/deadlock_jstack_1.png "Get thread dump with jstack")
+
+#### kill -3
+```
+kill -3 <pid>
+```
+This doesn't wok on Windows:
+```
+$ kill -3 22136
+bash: kill: (22136) - No such process
+```
+
+#### visual vm
+![deadlock_visual_vm_0.png](screenshots/deadlock_visual_vm_0.png "deadlock_visual_vm_0")
+![deadlock_visual_vm_1.png](screenshots/deadlock_visual_vm_1.png "deadlock_visual_vm_1")
+
+#### Windows (Ctrl + Break)
+
+#### jcmd
+````
+jcmd <pid> Thread.print
+````
+![deadlock_jcmd_0.png](screenshots/deadlock_jcmd_0.png "deadlock_jcmd_0.png")
+![deadlock_jcmd_0.png](screenshots/deadlock_jcmd_1.png "deadlock_jcmd_1.png")
+
 
 
 
