@@ -206,6 +206,7 @@ jcmd <pid> Thread.print
 ![deadlock_jcmd_0.png](screenshots/deadlock_jcmd_1.png "deadlock_jcmd_1.png")
 
 ## Remote JVM profiling
+
 For insecure remote connection use parameters:
 ```
 -Dcom.sun.management.jmxremote
@@ -216,7 +217,40 @@ For insecure remote connection use parameters:
 ```
 java -jar -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=7890 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false simple-1.0.0-SNAPSHOT.jar
 ```
+![Jconsole connection](screenshots/jconsole_connection_0.png)
+![Jconsole connection](screenshots/jconsole_connection.png)
 
+## Inspect a Flight Recording
+Execute JVM with two special parameters:
+```
+-XX:+UnlockCommercialFeatures
+-XX:+FlightRecorder
+```
+Java version 11+ may not require unlocking commercial features - remove `-XX:+UnlockCommercialFeatures` option
+```
+java -jar -Xmx100m -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:StartFlightRecording=dumponexit=true,filename=flight.jfr heap-1.0.0-SNAPSHOT.jar
+```
+![flight_recording_0.png](screenshots/flight_recording_0.png "Flight recording")
+
+Enable Flight Recording on JVM without these parameters:
+```
+java -jar -Xmx100m -XX:+UnlockCommercialFeatures heap-1.0.0-SNAPSHOT.jar
+jps -lvm
+jcmd <pid> JFR.start name=heap_recording filename=flight.jfr dumponexit=true
+```
+Open Java Mission Control and connect to default HotSpot of our JVM:
+```
+jmc
+```
+// TODO
+
+## jinfo
+Print system properties and command-line flags that were used to start the JVM.
+```
+java -jar simple-1.0.0-SNAPSHOT.jar
+jps
+jinfo <pid>
+```
 
 
 
