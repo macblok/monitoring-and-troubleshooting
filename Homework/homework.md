@@ -251,6 +251,5 @@ java -jar simple-1.0.0-SNAPSHOT.jar
 jps
 jinfo <pid>
 ```
-
-
-
+![jps](screenshots/jps.png "jps")
+![jinfo](screenshots/jinfo.png "jinfo")
