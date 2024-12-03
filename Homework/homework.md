@@ -63,8 +63,9 @@ Understanding both profiling and traceability and how they complement each other
 ### Links
 1. Oracle - Java Monitoring and Management: https://docs.oracle.com/en/java/javase/21/management/overview-java-se-monitoring-and-management.html#GUID-EA3CFF69-F0D3-47AB-9AED-EF1CBF7F2B24
 2. Oracle - General Java Troubleshooting: https://docs.oracle.com/en/java/javase/21/troubleshoot/general-java-troubleshooting.html
-3. Baeldung - Understanding Memory Leaks: https://www.baeldung.com/java-memory-leaks
-4. Reflectoring - Creating and Analyzing Java Heap Dumps: https://reflectoring.io/create-analyze-heapdump/
+3. Oracle - Overview of Java SE Monitoring and Management: https://docs.oracle.com/javase/8/docs/technotes/guides/management/overview.html
+4. Baeldung - Understanding Memory Leaks: https://www.baeldung.com/java-memory-leaks
+5. Reflectoring - Creating and Analyzing Java Heap Dumps: https://reflectoring.io/create-analyze-heapdump/
 
 ## Environment specification
 ![Environment specification](screenshots/environment_specification.png "Environment specification")
@@ -204,9 +205,17 @@ jcmd <pid> Thread.print
 ![deadlock_jcmd_0.png](screenshots/deadlock_jcmd_0.png "deadlock_jcmd_0.png")
 ![deadlock_jcmd_0.png](screenshots/deadlock_jcmd_1.png "deadlock_jcmd_1.png")
 
-
-
-
+## Remote JVM profiling
+For insecure remote connection use parameters:
+```
+-Dcom.sun.management.jmxremote
+-Dcom.sun.management.jmxremote.port=7890
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false
+```
+```
+java -jar -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=7890 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false simple-1.0.0-SNAPSHOT.jar
+```
 
 
 
