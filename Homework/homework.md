@@ -242,7 +242,7 @@ Open Java Mission Control and connect to default HotSpot of our JVM:
 ```
 jmc
 ```
-// TODO
+![Java Mission Control](screenshots/java_mission_control.png "Java Mission Control")
 
 ## jinfo
 Print system properties and command-line flags that were used to start the JVM.
